@@ -29,8 +29,8 @@ public class PanelWindow extends JPanel{
 // Name Randomizer
     public String createName() {
     Random rand = new Random();
-    String[] random = {"Pumpkin", "Smudge", "Boo", "Bubbles", "Fudge", "Patches"};
-    String randomName = random[rand.nextInt(6)];
+    String[] random = {"Pumpkin", "Smudge", "Boo", "Bubbles", "Fudge", "Patches", "Poppy", "Misty"};
+    String randomName = random[rand.nextInt(8)];
     return randomName;
 }
 
@@ -44,7 +44,9 @@ public class PanelWindow extends JPanel{
                 nameDisplay.setText("An error in the system. A cosmic mistake");
             } else if (inputName == "Miriam") {
                 nameDisplay.setText("Do you dread tomorrow?");
-             } else {
+            } else if (inputName == "Roulette") {
+                nameDisplay.setText("A little gambler");
+            } else {
                 nameDisplay.setText("Name: " + inputName);
             }
         }
