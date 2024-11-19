@@ -38,14 +38,17 @@ public class PanelWindow extends JPanel{
     private class NameListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
             String inputName = nameInput.getText();
-            if (inputName == "Sophie") {
+            System.out.println(inputName);
+            if (inputName.equals( "Sophie")) {
                 nameDisplay.setText("You can't take my name!");
-            } else if (inputName == "Luc") {
+            } else if (inputName.equals( "Luc")) {
                 nameDisplay.setText("An error in the system. A cosmic mistake");
-            } else if (inputName == "Miriam") {
+            } else if (inputName.equals( "Miriam")) {
                 nameDisplay.setText("Do you dread tomorrow?");
-            } else if (inputName == "Roulette") {
+            } else if (inputName.equals( "Roulette")) {
                 nameDisplay.setText("A little gambler");
+            } else if (inputName.equals( "Michael")) {
+                nameDisplay.setText("Cat NPC (programmer god)");
             } else {
                 nameDisplay.setText("Name: " + inputName);
             }
