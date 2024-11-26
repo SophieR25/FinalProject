@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 
 import javax.swing.JPanel;
+import javax.swing.plaf.basic.BasicComboBoxUI.KeyHandler;
 
 public class GamePanel extends JPanel implements Runnable{
     // Screen Settings
@@ -21,13 +22,14 @@ public class GamePanel extends JPanel implements Runnable{
     // Setting FPS
     int FPS = 60; // Restrict game loop to 60 frames per second (otherwise its too fast)
 
-    KeyInput keyInput = new KeyInput();
+    KeyInput keyH = new KeyInput();
     Thread gameThread; // Thread will allow multiple programs to run at once without interrupting the main program
+    Player player = new Player(this, keyH);
 
     public GamePanel() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight)); // Set size of game window
         this.setDoubleBuffered(true); // Aids in rendering performance
-        this.addKeyListener(keyInput); // Recognize key input
+        this.addKeyListener(keyH); // Recognize key input
         this.setFocusable(true);
 
     }
@@ -62,16 +64,16 @@ public class GamePanel extends JPanel implements Runnable{
         }
     }
     public void update() {
-        if(keyInput.upPressed == true){
+        if(keyH.upPressed == true){
             playerY = playerY - playerSpeed;
         }
-        if(keyInput.downPressed == true){
+        if(keyH.downPressed == true){
             playerY = playerY + playerSpeed;
         }
-        if(keyInput.leftPressed == true){
+        if(keyH.leftPressed == true){
             playerX = playerX - playerSpeed;
         }
-        if(keyInput.rightPressed == true){
+        if(keyH.rightPressed == true){
             playerX = playerX + playerSpeed;
         }
     }
