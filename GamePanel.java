@@ -64,24 +64,12 @@ public class GamePanel extends JPanel implements Runnable{
         }
     }
     public void update() {
-        if(keyH.upPressed == true){
-            playerY = playerY - playerSpeed;
-        }
-        if(keyH.downPressed == true){
-            playerY = playerY + playerSpeed;
-        }
-        if(keyH.leftPressed == true){
-            playerX = playerX - playerSpeed;
-        }
-        if(keyH.rightPressed == true){
-            playerX = playerX + playerSpeed;
-        }
+        player.update();
     }
     public void paintComponent (Graphics g){
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D)g; // Extend graphics class for more functionality
-        g2.setColor(Color.white);
-        g2.fillRect(playerX,playerY,tileSize,tileSize); // Mock player character
+        player.draw(g2);
         g2.dispose(); // Clear up memory
     }
 }
