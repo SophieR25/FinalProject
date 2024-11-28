@@ -18,13 +18,13 @@ public class Player extends Entity{
         setDefaultValues();
         getPlayerImage();
     }
-    public void setDefaultValues() {
-        x = 100;
-        y = 100;
-        speed = 4;
-        direction = "down";
+    public void setDefaultValues() { 
+        x = 100; // Initial Player X Position
+        y = 100; // Initial Player Y Position
+        speed = 4; // Player speed
+        direction = "down"; // Initial Player Direction
     }
-    public void getPlayerImage() {
+    public void getPlayerImage() { // Pull all player sprites from resource images
         try {
             up1 = ImageIO.read(getClass().getResourceAsStream("/res/player/blackcat_backward_leftpaw.png"));
             up2 = ImageIO.read(getClass().getResourceAsStream("/res/player/blackcat_backward_rightpaw.png"));
@@ -38,7 +38,7 @@ public class Player extends Entity{
             e.printStackTrace();
         }
     }
-    public void update() {
+    public void update() { // Set player direction based on keyboard input
 
         if(keyH.upPressed == true){
             y = y - speed;
@@ -69,7 +69,7 @@ public class Player extends Entity{
             }
         }
     }
-    public void draw(Graphics2D g2) {
+    public void draw(Graphics2D g2) { // Update player sprite based on direction
         BufferedImage image = null;
         switch(direction) {
             case "up":
@@ -106,8 +106,5 @@ public class Player extends Entity{
                 break;
         }
         g2.drawImage(image, x, y, gamePanel.tileSize, gamePanel.tileSize,null);
-    
-        // g2.setColor(Color.white);
-        // g2.fillRect(x,y,gamePanel.tileSize,gamePanel.tileSize); // Mock player character
     }
 }

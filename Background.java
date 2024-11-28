@@ -6,7 +6,7 @@ import javax.imageio.ImageIO;
 
 public class Background {
     GamePanel gamePanel;
-    public BufferedImage testImage;
+    public BufferedImage startingBase;
 
     public Background(GamePanel gamePanel) {
         this.gamePanel = gamePanel;
@@ -14,16 +14,16 @@ public class Background {
         getBackgroundImage();
     }
 
-    public void getBackgroundImage() {
+    public void getBackgroundImage() { // Pull information about backgrounds from resource images
         try {
-            testImage = ImageIO.read(getClass().getResourceAsStream("/res/background/startingbase.png"));
+            startingBase = ImageIO.read(getClass().getResourceAsStream("/res/background/startingbase.png"));
         }catch(IOException e) {
             e.printStackTrace();
         }
     }
 
-    public void draw(Graphics2D g2) {
-        g2.drawImage(testImage, 0, 0, 768, 575,null);
+    public void draw(Graphics2D g2) { // Draw backgrounds
+        g2.drawImage(startingBase, 0, 0, 768, 575,null);
     }
 
 }
