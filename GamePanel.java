@@ -25,11 +25,17 @@ public class GamePanel extends JPanel implements Runnable{
     int FPS = 60; // Restrict game loop to 60 frames per second (otherwise its too fast)
 
     // Pulling in information from other classes
-    KeyInput keyH = new KeyInput();
+    KeyInput keyH = new KeyInput(this);
     Thread gameThread; // Thread will allow multiple programs to run at once without interrupting the main program
     Player player = new Player(this, keyH);
     Background testBackground = new Background(this);
     CollisionChecker collisionChecker = new CollisionChecker();
+    FishshopAppearance fishShop = new FishshopAppearance(this);
+
+    // Game state
+    public final int playState = 1;
+    public final int fishShopState = 2;
+    public int gameState = playState;
 
     // GamePanel is the window the game is in
     public GamePanel() {
@@ -70,11 +76,14 @@ public class GamePanel extends JPanel implements Runnable{
         }
     }
     public void update() { // Update the player position
-        player.update();
+        if(gameState == playState){
+            player.update();
+            System.out.println(gameState);
+        }
+        if(gameState == fishShopState){
+            System.out.println(gameState);
+        }
     }
-
-    int edge1 = 200;
-    int thickness = 50;
 
     public void paintComponent (Graphics g){ // Draw all sprites on screen
         int playerTopBound = player.y + 20;
@@ -85,9 +94,8 @@ public class GamePanel extends JPanel implements Runnable{
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D)g; // Extend graphics class for more functionality
         testBackground.draw(g2); // Draw background
+        fishShop.draw(g2); // Draw fish shop
         player.draw(g2); // Draw player
-        g2.fill(new Rectangle(edge1, edge1, thickness,thickness));
-        g2.draw(new Rectangle(playerLeftBound, playerTopBound, 30,20));
         g2.dispose(); // Clear up memory
     }
 }

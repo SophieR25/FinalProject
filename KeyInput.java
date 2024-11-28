@@ -8,6 +8,12 @@ public class KeyInput implements KeyListener{
     public boolean leftPressed;
     public boolean rightPressed;
 
+    GamePanel gamePanel;
+
+    public KeyInput(GamePanel gamePanel){
+        this.gamePanel = gamePanel;
+    }
+
     @Override
     public void keyTyped(KeyEvent e) {
         
@@ -27,6 +33,13 @@ public class KeyInput implements KeyListener{
         }
         if(code == KeyEvent.VK_D){ // If the key pressed is D...
             rightPressed = true;
+        }
+        if(code == KeyEvent.VK_P){
+            if(gamePanel.gameState == gamePanel.playState){
+                gamePanel.gameState = gamePanel.fishShopState;
+            }else if(gamePanel.gameState == gamePanel.fishShopState){
+                gamePanel.gameState = gamePanel.playState;
+            }
         }
     }
 
