@@ -1,5 +1,5 @@
 public class CollisionChecker {
-    public void checkCollision(Player player){
+    public void checkCollision(Player player, GamePanel gamePanel){
         int playerTopBound = player.y + 20;
         int playerBottomBound = player.y + 40;
         int playerLeftBound = player.x + 9;

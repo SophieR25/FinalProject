@@ -75,13 +75,19 @@ public class GamePanel extends JPanel implements Runnable{
 
     int edge1 = 200;
     int thickness = 50;
+
     public void paintComponent (Graphics g){ // Draw all sprites on screen
+        int playerTopBound = player.y + 20;
+        int playerBottomBound = player.y + 40;
+        int playerLeftBound = player.x + 9;
+        int playerRightBound = player.x + 39;
+        
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D)g; // Extend graphics class for more functionality
         testBackground.draw(g2); // Draw background
         player.draw(g2); // Draw player
         g2.fill(new Rectangle(edge1, edge1, thickness,thickness));
-        g2.draw(new Rectangle(player.x+9, player.y+20, 30,20));
+        g2.draw(new Rectangle(playerLeftBound, playerTopBound, 30,20));
         g2.dispose(); // Clear up memory
     }
 }
