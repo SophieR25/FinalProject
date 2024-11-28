@@ -2,7 +2,12 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.plaf.basic.BasicComboBoxUI.KeyHandler;
 
@@ -21,18 +26,22 @@ public class GamePanel extends JPanel implements Runnable{
     int playerSpeed = 4;
     // Setting FPS
     int FPS = 60; // Restrict game loop to 60 frames per second (otherwise its too fast)
+    // Background initialization
+    private JLabel testLabel;
+    private ImageIcon testImage;
 
     KeyInput keyH = new KeyInput();
     Thread gameThread; // Thread will allow multiple programs to run at once without interrupting the main program
     Player player = new Player(this, keyH);
+    Background testBackground = new Background(this);
 
     public GamePanel() {
+        super();
         this.setPreferredSize(new Dimension(screenWidth, screenHeight)); // Set size of game window
         this.setDoubleBuffered(true); // Aids in rendering performance
         this.addKeyListener(keyH); // Recognize key input
         this.setFocusable(true);
-
-    }
+        }
 
     public void startGameThread() { // Run the thread
         gameThread = new Thread(this);
@@ -69,6 +78,7 @@ public class GamePanel extends JPanel implements Runnable{
     public void paintComponent (Graphics g){
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D)g; // Extend graphics class for more functionality
+        testBackground.draw(g2);
         player.draw(g2);
         g2.dispose(); // Clear up memory
     }
