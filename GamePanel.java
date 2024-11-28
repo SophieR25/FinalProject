@@ -2,6 +2,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
@@ -28,6 +29,7 @@ public class GamePanel extends JPanel implements Runnable{
     Thread gameThread; // Thread will allow multiple programs to run at once without interrupting the main program
     Player player = new Player(this, keyH);
     Background testBackground = new Background(this);
+    CollisionChecker collisionChecker = new CollisionChecker();
 
     // GamePanel is the window the game is in
     public GamePanel() {
@@ -70,11 +72,16 @@ public class GamePanel extends JPanel implements Runnable{
     public void update() { // Update the player position
         player.update();
     }
+
+    int edge1 = 200;
+    int thickness = 50;
     public void paintComponent (Graphics g){ // Draw all sprites on screen
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D)g; // Extend graphics class for more functionality
         testBackground.draw(g2); // Draw background
         player.draw(g2); // Draw player
+        g2.fill(new Rectangle(edge1, edge1, thickness,thickness));
+        g2.draw(new Rectangle(player.x+9, player.y+20, 30,20));
         g2.dispose(); // Clear up memory
     }
 }

@@ -1,5 +1,6 @@
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
@@ -10,11 +11,13 @@ public class Player extends Entity{
 
     GamePanel gamePanel;
     KeyInput keyH;
+    public boolean collisionOn = false;
 
     public Player(GamePanel gamePanel, KeyInput keyH) { // Create a player object
         this.gamePanel = gamePanel;
         this.keyH = keyH;
 
+        hitBox = new Rectangle(x, y, 10, 10);
         setDefaultValues();
         getPlayerImage();
     }
@@ -39,25 +42,42 @@ public class Player extends Entity{
         }
     }
     public void update() { // Set player direction based on keyboard input
-
-        if(keyH.upPressed == true){
-            y = y - speed;
-            direction = "up";
-        }
-        if(keyH.downPressed == true){
-            y = y + speed;
-            direction = "down";
-        }
-        if(keyH.leftPressed == true){
-            x = x - speed;
-            direction = "left";
-        }
-        if(keyH.rightPressed == true){
-            x = x + speed;
-            direction = "right";
-        }
-
         if(keyH.upPressed == true || keyH.downPressed == true || keyH.leftPressed == true || keyH.rightPressed == true){
+            if(keyH.upPressed == true){
+                direction = "up";
+            }
+            if(keyH.downPressed == true){
+                direction = "down";
+            }
+            if(keyH.leftPressed == true){
+                direction = "left";
+            }
+            if(keyH.rightPressed == true){
+                direction = "right";
+            }
+
+            // Check the player collision
+            collisionOn = false;
+            gamePanel.collisionChecker.checkCollision(this);
+
+            // If the collision is false, player moves
+            if (collisionOn == false) {
+                switch(direction){
+                    case "up":
+                        y = y - speed;
+                        break;
+                    case "down":
+                        y = y + speed;
+                        break;
+                    case "left":
+                        x = x - speed;
+                        break;
+                    case "right":
+                        x = x + speed;
+                        break;
+                }
+            }
+
             spriteCounter ++; // Animation changes every 10 frames
             if(spriteCounter > 10){
                 if(spriteNum == 1){
