@@ -8,10 +8,7 @@ public class CatGameMain {
 
         GamePanel gamePanel = new GamePanel();
         window.add(gamePanel); // add gamePanel to the window
-        // FishShopUI fishShopUI = new FishShopUI();
-        // window.add(fishShopUI);
         window.pack();
-
         window.setLocationRelativeTo(null); // Display window at center of screen
         window.setVisible(true); // You can see the window
 

@@ -34,13 +34,15 @@ public class GamePanel extends JPanel implements Runnable{
     Background testBackground = new Background(this);
     CollisionChecker collisionChecker = new CollisionChecker();
     FishshopAppearance fishShop = new FishshopAppearance(this);
-    public UI ui = new UI(this);
-    FishShopUI mousekeyeventPanel = new FishShopUI();
+    UI ui = new UI(this);
+    TestFishShopUI fishShopUI = new TestFishShopUI();
 
     // Game state
     public final int playState = 1;
     public final int fishShopState = 2;
     public int gameState = playState;
+
+    private JLabel testButton;
 
     // GamePanel is the window the game is in
     public GamePanel() {
@@ -50,7 +52,6 @@ public class GamePanel extends JPanel implements Runnable{
         this.addKeyListener(keyH); // Recognize key input
         this.setFocusable(true);
         }
-    
 
     public void startGameThread() { // Run the thread
         gameThread = new Thread(this);
@@ -64,7 +65,7 @@ public class GamePanel extends JPanel implements Runnable{
        
         while(gameThread != null) { // As long as the gameThread exists, this loop will repeat. This is my game loop
             // Update character positions
-            update(); 
+            update(fishShopUI); 
             // Draw screen with updated information
             repaint(); 
             try {
@@ -81,25 +82,24 @@ public class GamePanel extends JPanel implements Runnable{
             }
         }
     }
-    public void update() { // Update the player position
+    public void update(TestFishShopUI fishShopUI) { // Update the player position
         if(gameState == playState){
             player.update();
         }
         if(gameState == fishShopState){
+            System.out.println(fishShopUI.currentLocationX);
+            System.out.println(fishShopUI.thirty);
+
         }
     }
 
     public void paintComponent (Graphics g){ // Draw all sprites on screen
-        int playerTopBound = player.y + 20;
-        int playerBottomBound = player.y + 40;
-        int playerLeftBound = player.x + 9;
-        int playerRightBound = player.x + 39;
-        
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D)g; // Extend graphics class for more functionality
         testBackground.draw(g2); // Draw background
         fishShop.draw(g2); // Draw fish shop
         player.draw(g2); // Draw player
+        ui.draw(g2); // Draw fish shop UI
         g2.dispose(); // Clear up memory
     }
 }
