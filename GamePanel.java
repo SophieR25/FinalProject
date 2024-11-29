@@ -8,6 +8,8 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.plaf.basic.BasicComboBoxUI.KeyHandler;
@@ -21,6 +23,7 @@ public class GamePanel extends JPanel implements Runnable{
     final int maxScreenRow = 12; // Rows on game window
     final int screenWidth = tileSize * maxScreenColumn; // 786 pixels, size of game window
     final int screenHeight = tileSize * maxScreenRow; // 576 pixels, size of game window
+
     // Setting FPS
     int FPS = 60; // Restrict game loop to 60 frames per second (otherwise its too fast)
 
@@ -31,6 +34,8 @@ public class GamePanel extends JPanel implements Runnable{
     Background testBackground = new Background(this);
     CollisionChecker collisionChecker = new CollisionChecker();
     FishshopAppearance fishShop = new FishshopAppearance(this);
+    public UI ui = new UI(this);
+    FishShopUI mousekeyeventPanel = new FishShopUI();
 
     // Game state
     public final int playState = 1;
@@ -45,6 +50,7 @@ public class GamePanel extends JPanel implements Runnable{
         this.addKeyListener(keyH); // Recognize key input
         this.setFocusable(true);
         }
+    
 
     public void startGameThread() { // Run the thread
         gameThread = new Thread(this);
@@ -78,10 +84,8 @@ public class GamePanel extends JPanel implements Runnable{
     public void update() { // Update the player position
         if(gameState == playState){
             player.update();
-            System.out.println(gameState);
         }
         if(gameState == fishShopState){
-            System.out.println(gameState);
         }
     }
 
