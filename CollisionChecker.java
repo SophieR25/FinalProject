@@ -16,16 +16,16 @@ public class CollisionChecker {
                     player.collisionOn = true;
                 }
                 break;
-            // case "left":
-            //     if((playerLeftBound < 250) && (playerLeftBound > 260) &&(200 < player.y) && (player.y < 250)){
-            //         player.collisionOn = true;
-            //     }
-            //     break;
-            // case "right":
-            //     if((playerRightBound > 200) && (200 < player.y) && (player.y < 250)){
-            //         player.collisionOn = true;
-            //     }
-            //     break;
+            case "left":
+                if((playerLeftBound < 250) && (playerLeftBound > 240) && (235 < player.y) && (player.y < 355)){
+                    player.collisionOn = true;
+                }
+                break;
+            case "right":
+                if((playerRightBound > 95) && (playerRightBound < 100) && (235 < player.y) && (player.y < 355)){
+                    player.collisionOn = true;
+                }
+                break;
         }
     }
 }
