@@ -35,7 +35,6 @@ public class GamePanel extends JPanel implements Runnable{
     CollisionChecker collisionChecker = new CollisionChecker();
     FishshopAppearance fishShop = new FishshopAppearance(this);
     UI ui = new UI(this);
-    CatGameMain kittyKat = new CatGameMain();
 
     // Game state
     public final int playState = 1;
@@ -99,9 +98,5 @@ public class GamePanel extends JPanel implements Runnable{
         player.draw(g2); // Draw player
         // ui.draw(g2); // Draw fish shop UI
         g2.dispose(); // Clear up memory
-    }
-
-    public void updateState(CatGameMain kittyKat){
-        kittyKat.fishShopUIFinal;
     }
 }

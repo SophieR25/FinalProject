@@ -29,12 +29,10 @@ public class CatGameMain {
                 if(gamePanel.gameState == gamePanel.playState){
                     fishShopUI.setVisible(false);
                     window.setVisible(true); 
-                    System.out.println("Game state");
                 }
                 if(gamePanel.gameState == gamePanel.fishShopState){
                     fishShopUI.setVisible(true);
                     window.setVisible(false); 
-                    System.out.println("Pause state");
                 }
                 try {
                     double remainingTime = nextDrawTime - System.nanoTime(); // How much time until next game loop?
