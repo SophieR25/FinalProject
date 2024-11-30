@@ -35,7 +35,7 @@ public class GamePanel extends JPanel implements Runnable{
     CollisionChecker collisionChecker = new CollisionChecker();
     FishshopAppearance fishShop = new FishshopAppearance(this);
     UI ui = new UI(this);
-    TestFishShopUI fishShopUI = new TestFishShopUI();
+    CatGameMain kittyKat = new CatGameMain();
 
     // Game state
     public final int playState = 1;
@@ -65,7 +65,7 @@ public class GamePanel extends JPanel implements Runnable{
        
         while(gameThread != null) { // As long as the gameThread exists, this loop will repeat. This is my game loop
             // Update character positions
-            update(fishShopUI); 
+            update(); 
             // Draw screen with updated information
             repaint(); 
             try {
@@ -82,14 +82,12 @@ public class GamePanel extends JPanel implements Runnable{
             }
         }
     }
-    public void update(TestFishShopUI fishShopUI) { // Update the player position
+    public void update() { // Update the player position
         if(gameState == playState){
             player.update();
         }
         if(gameState == fishShopState){
-            System.out.println(fishShopUI.currentLocationX);
-            System.out.println(fishShopUI.thirty);
-
+          
         }
     }
 
@@ -99,7 +97,11 @@ public class GamePanel extends JPanel implements Runnable{
         testBackground.draw(g2); // Draw background
         fishShop.draw(g2); // Draw fish shop
         player.draw(g2); // Draw player
-        ui.draw(g2); // Draw fish shop UI
+        // ui.draw(g2); // Draw fish shop UI
         g2.dispose(); // Clear up memory
+    }
+
+    public void updateState(CatGameMain kittyKat){
+        kittyKat.fishShopUIFinal;
     }
 }
