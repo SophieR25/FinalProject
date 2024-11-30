@@ -22,10 +22,81 @@ public class CollisionChecker {
                 }
                 break;
             case "right":
-                if((playerRightBound > 95) && (playerRightBound < 100) && (235 < player.y) && (player.y < 355)){
+                if((playerRightBound > 95) && (playerRightBound < 105) && (235 < player.y) && (player.y < 355)){
                     player.collisionOn = true;
                 }
                 break;
         }
+
+        switch(player.direction){ // Left Wall
+            case "left":
+                if((playerLeftBound < 30) && (playerLeftBound > 25) && (-5 < player.y) && (player.y < 580)){
+                    player.collisionOn = true;
+                }
+                break;
+        }
+
+        switch(player.direction){ // Top Wall
+            case "up":
+                if((playerTopBound < 30) && (playerTopBound > 25)&& (-5 < player.x) && (player.x < 790)){
+                    player.collisionOn = true;
+                }
+                break;
     }
+
+    switch(player.direction){ // Right Wall
+        case "right":
+            if((playerRightBound > 735) && (playerRightBound < 740) && (-5 < player.y) && (player.y < 580)){
+                player.collisionOn = true;
+            }
+            break;
+    }
+
+    switch(player.direction){ // Bottom Wall
+        case "down":
+            if((playerBottomBound > 545) && (playerBottomBound < 550) && (-5 < player.x) && (player.x < 790)){
+                player.collisionOn = true;
+            }
+            break;
+    }
+
+    switch(player.direction){ // Left Water
+        case "down":
+            if((playerBottomBound > 420) && (playerBottomBound < 425) && (-5 < player.x) && (player.x < 130)){
+                player.collisionOn = true;
+            }
+            break;
+        case "left":
+            if((playerLeftBound < 150) && (playerLeftBound > 140) && (385 < player.y) && (player.y < 580)){
+                player.collisionOn = true;
+            }
+            break;
+    }
+
+    switch(player.direction){ // Bottom Water
+        case "down":
+            if((playerBottomBound > 475) && (playerBottomBound < 480) && (-5 < player.x) && (player.x < 180)){
+                player.collisionOn = true;
+            }
+            break;
+    }
+
+    switch(player.direction){ // Right Water
+        case "down":
+            if((playerBottomBound > 420) && (playerBottomBound < 425) && (150 < player.x) && (player.x < 250)){
+                player.collisionOn = true;
+            }
+            break;
+        case "left":
+            if((playerLeftBound < 270) && (playerLeftBound > 265) && (384 < player.y) && (player.y < 600)){
+                player.collisionOn = true;
+            }
+            break;
+        case "right":
+            if((playerRightBound > 175) && (playerRightBound < 180) && (384 < player.y) && (player.y < 580)){
+                player.collisionOn = true;
+            }
+            break;
+    }
+}
 }
