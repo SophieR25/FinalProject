@@ -25,8 +25,10 @@ public class FishShopUIFinal extends JPanel{
     private JLabel levelLabel;
     private JLabel buyingLabel;
 
-    int fishShopLevel;
-    boolean legalPurchase;
+    GamePanel gamePanel;
+        
+    int fishShopLevel = 0;
+    boolean legalPurchase = true;
 
 // Create Panel
     public FishShopUIFinal() {
@@ -37,12 +39,13 @@ public class FishShopUIFinal extends JPanel{
 // All Action Listeners
 
     public class MouseHelper1 implements MouseListener{
-        GamePanel gamePanel;
+        
         @Override
         public void mouseClicked(MouseEvent e) {
             if(fishShopLevel < 3){
                 legalPurchase = true;
                 fishShopLevel = fishShopLevel + 1;
+                levelLabel.setText("Fish Shop Level: " + fishShopLevel);
             }
             if (fishShopLevel >= 3){
                 legalPurchase = false;
@@ -107,7 +110,7 @@ public class FishShopUIFinal extends JPanel{
         upgradeButton = new JButton("Upgrade Fish Shop");
         rButton = new JButton("Return");
         levelLabel = new JLabel("Fish Shop Level: " + fishShopLevel);
-        buyingLabel = new JLabel("Buying Label");
+        buyingLabel = new JLabel("Buying Label: " + legalPurchase);
 
         add(levelLabel);
         add(upgradeButton);
