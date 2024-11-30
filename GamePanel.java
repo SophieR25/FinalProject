@@ -35,6 +35,7 @@ public class GamePanel extends JPanel implements Runnable{
     CollisionChecker collisionChecker = new CollisionChecker();
     FishshopAppearance fishShop = new FishshopAppearance(this);
     UI ui = new UI(this);
+    FishShopUIFinal fishShopUI = new FishShopUIFinal();
 
     // Game state
     public final int playState = 1;
@@ -65,6 +66,7 @@ public class GamePanel extends JPanel implements Runnable{
         while(gameThread != null) { // As long as the gameThread exists, this loop will repeat. This is my game loop
             // Update character positions
             update(); 
+            System.out.println(fishShopUI.fishShopLevel);
             // Draw screen with updated information
             repaint(); 
             try {

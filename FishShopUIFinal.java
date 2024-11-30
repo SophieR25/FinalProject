@@ -21,6 +21,12 @@ public class FishShopUIFinal extends JPanel{
 
 // Variables
     private JButton rButton;
+    private JButton upgradeButton;
+    private JLabel levelLabel;
+    private JLabel buyingLabel;
+
+    int fishShopLevel;
+    boolean legalPurchase;
 
 // Create Panel
     public FishShopUIFinal() {
@@ -30,7 +36,41 @@ public class FishShopUIFinal extends JPanel{
 
 // All Action Listeners
 
-    public class MouseHelper implements MouseListener{
+    public class MouseHelper1 implements MouseListener{
+        GamePanel gamePanel;
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            if(fishShopLevel < 3){
+                legalPurchase = true;
+                fishShopLevel = fishShopLevel + 1;
+            }
+            if (fishShopLevel >= 3){
+                legalPurchase = false;
+            }
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+            
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+           
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            
+        }
+    }
+
+    public class MouseHelper2 implements MouseListener{
         GamePanel gamePanel;
 
 
@@ -58,19 +98,24 @@ public class FishShopUIFinal extends JPanel{
         public void mouseExited(MouseEvent e) {
             
         }
-        
     }
-// Intro Panel
 
     public void initPanel() {
         setPreferredSize(new Dimension(786,576));
         setBackground(Color.LIGHT_GRAY);
 
+        upgradeButton = new JButton("Upgrade Fish Shop");
         rButton = new JButton("Return");
+        levelLabel = new JLabel("Fish Shop Level: " + fishShopLevel);
+        buyingLabel = new JLabel("Buying Label");
 
+        add(levelLabel);
+        add(upgradeButton);
+        add(buyingLabel);
         add(rButton);
 
-        rButton.addMouseListener(new MouseHelper());
+        upgradeButton.addMouseListener(new MouseHelper1());
+        rButton.addMouseListener(new MouseHelper2());
         // nameDisplay = new JLabel("Name: ");
         // nameInput = new JTextField("Input Name");
         // randomizeName = new JButton("Randomize");
