@@ -67,7 +67,8 @@ public class GamePanel extends JPanel implements Runnable{
         while(gameThread != null) { // As long as the gameThread exists, this loop will repeat. This is my game loop
             // Update character positions
             update(); 
-            System.out.println(fishCounter.currency);
+            fishCounter.currencyUpdate(fishShopUI);
+            System.out.println("Currency: " + fishCounter.currency);
             // Draw screen with updated information
             repaint(); 
             try {

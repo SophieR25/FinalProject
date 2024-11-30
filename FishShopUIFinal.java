@@ -27,7 +27,7 @@ public class FishShopUIFinal extends JPanel{
 
     GamePanel gamePanel;
         
-    int fishShopLevel = 0;
+    double fishShopLevel = 0;
     boolean legalPurchase = true;
 
 // Create Panel
