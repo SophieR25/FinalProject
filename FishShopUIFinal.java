@@ -49,6 +49,7 @@ public class FishShopUIFinal extends JPanel{
             }
             if (fishShopLevel >= 3){
                 legalPurchase = false;
+                buyingLabel.setText("You have bought all upgrades!");
             }
         }
 
@@ -110,7 +111,7 @@ public class FishShopUIFinal extends JPanel{
         upgradeButton = new JButton("Upgrade Fish Shop");
         rButton = new JButton("Return");
         levelLabel = new JLabel("Fish Shop Level: " + fishShopLevel);
-        buyingLabel = new JLabel("Buying Label: " + legalPurchase);
+        buyingLabel = new JLabel();
 
         add(levelLabel);
         add(upgradeButton);
