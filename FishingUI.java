@@ -39,12 +39,10 @@ public class FishingUI extends JPanel{
 
 // All Action Listeners
 
-    public class MouseHelper1 implements MouseListener{
-         double totalFish = fishCounter.currency;
-        
+    public class MouseHelper1 implements MouseListener{      
         @Override
         public void mouseClicked(MouseEvent e) {
-            totalFish = totalFish + 1;
+            
         }
 
         @Override
