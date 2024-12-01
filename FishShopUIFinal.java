@@ -26,6 +26,7 @@ public class FishShopUIFinal extends JPanel{
     private JLabel levelLabel;
     private JLabel buyingFishLabel;
     private JLabel buyingBedLabel;
+    private JLabel name;
 
     GamePanel gamePanel;
         
@@ -148,12 +149,14 @@ public class FishShopUIFinal extends JPanel{
         setBackground(Color.LIGHT_GRAY);
 
         upgradeFishButton = new JButton("Upgrade Fish Shop");
+        name = new JLabel("Welcome to the shop (name)! Thank you for your purchases :)                                                                                          ");
         rButton = new JButton("Return");
         levelLabel = new JLabel("Fish Shop Level: " + fishShopLevel);
         buyingFishLabel = new JLabel();
         buyingBedLabel = new JLabel();
         upgradeBed = new JButton("Upgrade Cat Bed");
 
+        add(name);
         add(levelLabel);
         add(upgradeFishButton);
         add(buyingFishLabel);
