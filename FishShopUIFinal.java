@@ -1,5 +1,6 @@
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -29,16 +30,18 @@ public class FishShopUIFinal extends JPanel{
     private JLabel name;
 
     GamePanel gamePanel;
+    PanelWindow panelWindow;
         
     int fishShopLevel = 0;
     int bedLevel = 0;
     boolean legalPurchase = true;
 
 // Create Panel
-    public FishShopUIFinal(GamePanel gamePanel) {
+    public FishShopUIFinal(GamePanel gamePanel, PanelWindow panelWindow) {
         this.gamePanel = gamePanel;
+        this.panelWindow = panelWindow;
         // super();
-        initPanel();
+        initPanel(panelWindow);
     }
 
 // All Action Listeners
@@ -144,12 +147,13 @@ public class FishShopUIFinal extends JPanel{
         }
     }
 
-    public void initPanel() {
+    public void initPanel(PanelWindow panelWindow) {
+        String inputString = getName();
         setPreferredSize(new Dimension(786,576));
         setBackground(Color.LIGHT_GRAY);
 
         upgradeFishButton = new JButton("Upgrade Fish Shop");
-        name = new JLabel("Welcome to the shop (name)! Thank you for your purchases :)                                                                                          ");
+        name = new JLabel("Welcome to the shop " + inputString + "! Thank you for your purchases :)                                                                                          ");
         rButton = new JButton("Return");
         levelLabel = new JLabel("Fish Shop Level: " + fishShopLevel);
         buyingFishLabel = new JLabel();

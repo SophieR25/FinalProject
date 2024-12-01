@@ -42,24 +42,30 @@ public class PanelWindow extends JPanel{
     return randomName;
 }
 
+    public String getName(){
+        String inputName = nameInput.getText();
+        if (inputName.equals( "Sophie")) {
+            nameDisplay.setText("You can't take my name!");
+        } else if (inputName.equals( "Luc")) {
+            nameDisplay.setText("An error in the system. A cosmic mistake");
+        } else if (inputName.equals( "Miriam")) {
+            nameDisplay.setText("Do you dread tomorrow?");
+        } else if (inputName.equals( "Roulette")) {
+            nameDisplay.setText("A little gambler");
+        } else if (inputName.equals( "Michael")) {
+            nameDisplay.setText("Cat NPC (programmer god)");
+        } else {
+            nameDisplay.setText("Name: " + inputName);
+        }
+        return inputName;
+    }
+
 // All Action Listeners
     private class NameListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
             String inputName = nameInput.getText();
             System.out.println(inputName);
-            if (inputName.equals( "Sophie")) {
-                nameDisplay.setText("You can't take my name!");
-            } else if (inputName.equals( "Luc")) {
-                nameDisplay.setText("An error in the system. A cosmic mistake");
-            } else if (inputName.equals( "Miriam")) {
-                nameDisplay.setText("Do you dread tomorrow?");
-            } else if (inputName.equals( "Roulette")) {
-                nameDisplay.setText("A little gambler");
-            } else if (inputName.equals( "Michael")) {
-                nameDisplay.setText("Cat NPC (programmer god)");
-            } else {
-                nameDisplay.setText("Name: " + inputName);
-            }
+            getName();
         }
     }
 
