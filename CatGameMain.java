@@ -4,10 +4,13 @@ public class CatGameMain {
     public static void main(String[] args) {
         JFrame window = new JFrame("Cat Game!"); // Create new JFrame
         JFrame fishShopUI = new JFrame("Fish Shop!");
+        JFrame fishingUI1 = new JFrame("Fish!");
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Close JFrame when x is clicked
         window.setResizable(false); //Cannot change window size
         fishShopUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Close JFrame when x is clicked
         fishShopUI.setResizable(false); //Cannot change window size
+        fishingUI1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Close JFrame when x is clicked
+        fishingUI1.setResizable(false); //Cannot change window size
 
         GamePanel gamePanel = new GamePanel();
         window.add(gamePanel); // add gamePanel to the window
@@ -18,6 +21,13 @@ public class CatGameMain {
         fishShopUI.add(fishShopUIFinal);
         fishShopUI.pack();
         fishShopUI.setLocationRelativeTo(null); // Display window at center of screen
+        
+        fishCounter fishCounter;
+        fishCounter = new fishCounter();
+        FishingUI fishingUI2 = new FishingUI(gamePanel, fishCounter);
+        fishingUI1.add(fishingUI2);
+        fishingUI1.pack();
+        fishingUI1.setLocationRelativeTo(null);
     
         gamePanel.startGameThread();
 
@@ -28,11 +38,18 @@ public class CatGameMain {
                 // Update character positions
                 if(gamePanel.gameState == gamePanel.playState){
                     fishShopUI.setVisible(false);
+                    fishingUI1.setVisible(false);
                     window.setVisible(true); 
                 }
                 if(gamePanel.gameState == gamePanel.fishShopState){
                     fishShopUI.setVisible(true);
                     window.setVisible(false); 
+                    fishingUI1.setVisible(false);
+                }
+                if(gamePanel.gameState == gamePanel.fishingState){
+                    fishShopUI.setVisible(false);
+                    window.setVisible(false); 
+                    fishingUI1.setVisible(true);
                 }
                 try {
                     double remainingTime = nextDrawTime - System.nanoTime(); // How much time until next game loop?

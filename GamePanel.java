@@ -37,13 +37,15 @@ public class GamePanel extends JPanel implements Runnable{
     Background testBackground = new Background(this);
     FishshopAppearance fishShop = new FishshopAppearance(this);
     UI ui = new UI(this);
-    FishShopUIFinal fishShopUI = new FishShopUIFinal(this);
     fishCounter fishCounter = new fishCounter();
+    FishShopUIFinal fishShopUI = new FishShopUIFinal(this);
+    FishingUI fishingUI = new FishingUI(this, fishCounter);
     StateLocation stateLocation = new StateLocation(this, player);
 
     // Game state
     public final int playState = 1;
     public final int fishShopState = 2;
+    public final int fishingState = 3;
     public int gameState = playState;
 
     private JLabel testButton;
@@ -100,14 +102,14 @@ public class GamePanel extends JPanel implements Runnable{
     }
 
     public void paintComponent (Graphics g){ // Draw all sprites on screen
-        double fauxCurrency = Math.floor(fishCounter.currency);
+        double roundedCurrency = Math.floor(fishCounter.currency);
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D)g; // Extend graphics class for more functionality
         testBackground.draw(g2); // Draw background
         fishShop.draw(g2); // Draw fish shop
         player.draw(g2); // Draw player
-        g2.setFont(new Font("TimesRoman", Font.PLAIN, 30));
-        g2.drawString("Fish: " + fauxCurrency, 30, 60);
+        g2.setFont(new Font("Comic Sans MS", Font.PLAIN, 30));
+        g2.drawString("Fish: " + roundedCurrency, 30, 60);
         g2.dispose(); // Clear up memory
     }
 }
