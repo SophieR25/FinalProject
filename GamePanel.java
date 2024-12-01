@@ -36,6 +36,7 @@ public class GamePanel extends JPanel implements Runnable{
     Player player = new Player(this, keyH);
     Background testBackground = new Background(this);
     FishshopAppearance fishShop = new FishshopAppearance(this);
+    BedAppearance bedAppearance = new BedAppearance(this);
     UI ui = new UI(this);
     fishCounter fishCounter = new fishCounter();
     FishShopUIFinal fishShopUI = new FishShopUIFinal(this);
@@ -108,6 +109,7 @@ public class GamePanel extends JPanel implements Runnable{
         Graphics2D g2 = (Graphics2D)g; // Extend graphics class for more functionality
         testBackground.draw(g2); // Draw background
         fishShop.draw(g2); // Draw fish shop
+        bedAppearance.draw(g2); // Draw bed
         player.draw(g2); // Draw player
         g2.setFont(new Font("Comic Sans MS", Font.PLAIN, 30));
         g2.drawString("Fish: " + roundedCurrency, 30, 60);

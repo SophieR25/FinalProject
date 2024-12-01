@@ -21,13 +21,16 @@ public class FishShopUIFinal extends JPanel{
 
 // Variables
     private JButton rButton;
-    private JButton upgradeButton;
+    private JButton upgradeFishButton;
+    private JButton upgradeBed;
     private JLabel levelLabel;
-    private JLabel buyingLabel;
+    private JLabel buyingFishLabel;
+    private JLabel buyingBedLabel;
 
     GamePanel gamePanel;
         
-    double fishShopLevel = 0;
+    int fishShopLevel = 0;
+    int bedLevel = 0;
     boolean legalPurchase = true;
 
 // Create Panel
@@ -50,7 +53,7 @@ public class FishShopUIFinal extends JPanel{
             }
             if (fishShopLevel >= 3){
                 legalPurchase = false;
-                buyingLabel.setText("You have bought all upgrades!");
+                buyingFishLabel.setText("You have bought all fish shop upgrades!");
             }
         }
 
@@ -104,22 +107,63 @@ public class FishShopUIFinal extends JPanel{
         }
     }
 
+    
+    public class MouseHelper3 implements MouseListener{
+        
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            if(bedLevel < 3){
+                legalPurchase = true;
+                bedLevel = bedLevel + 1;
+            }
+            if (bedLevel >= 3){
+                legalPurchase = false;
+                buyingBedLabel.setText("You have bought all bed upgrades!");
+            }
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+            
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+           
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            
+        }
+    }
+
     public void initPanel() {
         setPreferredSize(new Dimension(786,576));
         setBackground(Color.LIGHT_GRAY);
 
-        upgradeButton = new JButton("Upgrade Fish Shop");
+        upgradeFishButton = new JButton("Upgrade Fish Shop");
         rButton = new JButton("Return");
         levelLabel = new JLabel("Fish Shop Level: " + fishShopLevel);
-        buyingLabel = new JLabel();
+        buyingFishLabel = new JLabel();
+        buyingBedLabel = new JLabel();
+        upgradeBed = new JButton("Upgrade Cat Bed");
 
         add(levelLabel);
-        add(upgradeButton);
-        add(buyingLabel);
+        add(upgradeFishButton);
+        add(buyingFishLabel);
+        add(upgradeBed);
+        add(buyingBedLabel);
         add(rButton);
 
-        upgradeButton.addMouseListener(new MouseHelper1());
+        upgradeFishButton.addMouseListener(new MouseHelper1());
         rButton.addMouseListener(new MouseHelper2());
+        upgradeBed.addMouseListener(new MouseHelper3());
         // nameDisplay = new JLabel("Name: ");
         // nameInput = new JTextField("Input Name");
         // randomizeName = new JButton("Randomize");

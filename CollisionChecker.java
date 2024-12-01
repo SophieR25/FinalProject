@@ -98,5 +98,29 @@ public class CollisionChecker {
             }
             break;
     }
+
+    switch(player.direction){ // Bed
+        case "up":
+            if((playerTopBound < 210) && (playerTopBound > 205) && (485 < player.x) && (player.x < 620)){
+                player.collisionOn = true;
+            }
+            break;
+        case "down":
+            if((playerBottomBound > 115) && (playerBottomBound < 120) && (485 < player.x) && (player.x < 620)){
+                player.collisionOn = true;
+            }
+            break;
+        case "left":
+            if((playerLeftBound < 640) && (playerLeftBound > 635) && (80 < player.y) && (player.y < 195)){
+                player.collisionOn = true;
+            }
+            break;
+        case "right":
+            if((playerRightBound > 515) && (playerRightBound < 520) && (80 < player.y) && (player.y < 195)){
+                player.collisionOn = true;
+            }
+            break;
+    }
+
 }
 }
