@@ -13,6 +13,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.plaf.basic.BasicComboBoxUI.KeyHandler;
+import javax.swing.plaf.nimbus.State;
 
 public class GamePanel extends JPanel implements Runnable{
     // Screen Settings
@@ -28,15 +29,16 @@ public class GamePanel extends JPanel implements Runnable{
     int FPS = 60; // Restrict game loop to 60 frames per second (otherwise its too fast)
 
     // Pulling in information from other classes
+    CollisionChecker collisionChecker = new CollisionChecker();
     KeyInput keyH = new KeyInput(this);
     Thread gameThread; // Thread will allow multiple programs to run at once without interrupting the main program
     Player player = new Player(this, keyH);
     Background testBackground = new Background(this);
-    CollisionChecker collisionChecker = new CollisionChecker();
     FishshopAppearance fishShop = new FishshopAppearance(this);
     UI ui = new UI(this);
     FishShopUIFinal fishShopUI = new FishShopUIFinal(this);
     fishCounter fishCounter = new fishCounter();
+    StateLocation stateLocation = new StateLocation(this, player);
 
     // Game state
     public final int playState = 1;
@@ -51,6 +53,7 @@ public class GamePanel extends JPanel implements Runnable{
         this.setPreferredSize(new Dimension(screenWidth, screenHeight)); // Set size of game window
         this.setDoubleBuffered(true); // Aids in rendering performance
         this.addKeyListener(keyH); // Recognize key input
+        this.addKeyListener(stateLocation);
         this.setFocusable(true);
         }
 

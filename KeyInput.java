@@ -35,11 +35,11 @@ public class KeyInput implements KeyListener{
             rightPressed = true;
         }
         if(code == KeyEvent.VK_P){
-            if(gamePanel.gameState == gamePanel.playState){
-                gamePanel.gameState = gamePanel.fishShopState;
-            }else if(gamePanel.gameState == gamePanel.fishShopState){
-                gamePanel.gameState = gamePanel.playState;
-            }
+            // if(gamePanel.gameState == gamePanel.playState){
+            //     gamePanel.gameState = gamePanel.fishShopState;
+            // }else if(gamePanel.gameState == gamePanel.fishShopState){
+            //     gamePanel.gameState = gamePanel.playState;
+            // }
         }
     }
 
