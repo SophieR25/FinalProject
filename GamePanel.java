@@ -39,7 +39,8 @@ public class GamePanel extends JPanel implements Runnable{
     UI ui = new UI(this);
     fishCounter fishCounter = new fishCounter();
     FishShopUIFinal fishShopUI = new FishShopUIFinal(this);
-    FishingUI fishingUI = new FishingUI(this, fishCounter);
+    AddToCurrency addToCurrency = new AddToCurrency(fishCounter);
+    FishingUI fishingUI = new FishingUI(this, fishCounter, addToCurrency);
     StateLocation stateLocation = new StateLocation(this, player);
 
     // Game state

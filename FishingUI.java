@@ -21,14 +21,17 @@ public class FishingUI extends JPanel{
 
 // Variables
     private JButton fish;
+    private JButton rButton;
 
     GamePanel gamePanel;
     fishCounter fishCounter;
+    AddToCurrency addToCurrency;
         
 // Create Panel
-    public FishingUI(GamePanel gamePanel, fishCounter fishCounter) {
+    public FishingUI(GamePanel gamePanel, fishCounter fishCounter, AddToCurrency addToCurrency) {
         this.gamePanel = gamePanel;
         this.fishCounter = fishCounter;
+        this.addToCurrency = addToCurrency;
 
         // super();
         initPanel();
@@ -65,15 +68,47 @@ public class FishingUI extends JPanel{
         }
     }
 
+    public class MouseHelper2 implements MouseListener{
+
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            gamePanel.gameState = gamePanel.playState;
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+            
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+           
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+            
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            
+        }
+    }
+
     public void initPanel() {
         setPreferredSize(new Dimension(786,576));
         setBackground(Color.LIGHT_GRAY);
 
         fish = new JButton("Fish!");
+        rButton = new JButton("Return");
 
         add(fish);
+        add(rButton);
 
         fish.addMouseListener(new MouseHelper1());
+        rButton.addMouseListener(new MouseHelper2());
     }
    
 }

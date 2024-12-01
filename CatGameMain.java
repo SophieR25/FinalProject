@@ -23,8 +23,10 @@ public class CatGameMain {
         fishShopUI.setLocationRelativeTo(null); // Display window at center of screen
         
         fishCounter fishCounter;
+        AddToCurrency addToCurrency;
         fishCounter = new fishCounter();
-        FishingUI fishingUI2 = new FishingUI(gamePanel, fishCounter);
+        addToCurrency = new AddToCurrency(fishCounter);
+        FishingUI fishingUI2 = new FishingUI(gamePanel, fishCounter, addToCurrency);
         fishingUI1.add(fishingUI2);
         fishingUI1.pack();
         fishingUI1.setLocationRelativeTo(null);
