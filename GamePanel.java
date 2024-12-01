@@ -1,5 +1,6 @@
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
@@ -71,7 +72,8 @@ public class GamePanel extends JPanel implements Runnable{
             // Update character positions
             update(); 
             fishCounter.currencyUpdate(fishShopUI);
-            System.out.println("Currency: " + fishCounter.currency);
+            double fauxCurrency = Math.floor(fishCounter.currency);
+            System.out.println("Currency: " + fishCounter.currency + " Faux Currency: " + fauxCurrency);
             // Draw screen with updated information
             repaint(); 
             try {
@@ -98,12 +100,14 @@ public class GamePanel extends JPanel implements Runnable{
     }
 
     public void paintComponent (Graphics g){ // Draw all sprites on screen
+        double fauxCurrency = Math.floor(fishCounter.currency);
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D)g; // Extend graphics class for more functionality
         testBackground.draw(g2); // Draw background
         fishShop.draw(g2); // Draw fish shop
         player.draw(g2); // Draw player
-        // ui.draw(g2); // Draw fish shop UI
+        g2.setFont(new Font("TimesRoman", Font.PLAIN, 30));
+        g2.drawString("Fish: " + fauxCurrency, 30, 60);
         g2.dispose(); // Clear up memory
     }
 }
