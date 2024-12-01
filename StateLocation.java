@@ -26,7 +26,7 @@ public class StateLocation implements KeyListener{
                 gamePanel.gameState = gamePanel.fishShopState;
             }else if(gamePanel.gameState == gamePanel.fishShopState){
                 gamePanel.gameState = gamePanel.playState;
-            }else if((gamePanel.gameState == gamePanel.playState) && (player.x < 200)){
+            }else if((gamePanel.gameState == gamePanel.playState) && (player.x < 150) && (player.x > 100) && (player.y > 430)){
                 gamePanel.gameState = gamePanel.fishingState;
             }
         }
