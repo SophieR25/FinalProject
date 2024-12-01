@@ -35,7 +35,7 @@ public class GamePanel extends JPanel implements Runnable{
     CollisionChecker collisionChecker = new CollisionChecker();
     FishshopAppearance fishShop = new FishshopAppearance(this);
     UI ui = new UI(this);
-    FishShopUIFinal fishShopUI = new FishShopUIFinal();
+    FishShopUIFinal fishShopUI = new FishShopUIFinal(this);
     fishCounter fishCounter = new fishCounter();
 
     // Game state

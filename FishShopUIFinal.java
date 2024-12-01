@@ -31,8 +31,9 @@ public class FishShopUIFinal extends JPanel{
     boolean legalPurchase = true;
 
 // Create Panel
-    public FishShopUIFinal() {
-        super();
+    public FishShopUIFinal(GamePanel gamePanel) {
+        this.gamePanel = gamePanel;
+        // super();
         initPanel();
     }
 
@@ -75,7 +76,6 @@ public class FishShopUIFinal extends JPanel{
     }
 
     public class MouseHelper2 implements MouseListener{
-        GamePanel gamePanel;
 
 
         @Override

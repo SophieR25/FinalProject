@@ -14,7 +14,7 @@ public class CatGameMain {
         window.pack();
         window.setLocationRelativeTo(null); // Display window at center of screen
 
-        FishShopUIFinal fishShopUIFinal = new FishShopUIFinal();
+        FishShopUIFinal fishShopUIFinal = new FishShopUIFinal(gamePanel);
         fishShopUI.add(fishShopUIFinal);
         fishShopUI.pack();
         fishShopUI.setLocationRelativeTo(null); // Display window at center of screen
