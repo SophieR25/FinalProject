@@ -27,6 +27,8 @@ public class PanelWindow extends JPanel{
     private JButton randomizeName;
     private JButton startGame;
 
+    String inputName;
+
 // Create Panel
     public PanelWindow(GamePanel gamePanel) {
         this.gamePanel = gamePanel;
@@ -43,7 +45,7 @@ public class PanelWindow extends JPanel{
 }
 
     public String getName(){
-        String inputName = nameInput.getText();
+        inputName = nameInput.getText();
         if (inputName.equals( "Sophie")) {
             nameDisplay.setText("You can't take my name!");
         } else if (inputName.equals( "Luc")) {
