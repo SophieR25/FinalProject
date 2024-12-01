@@ -45,10 +45,11 @@ public class GamePanel extends JPanel implements Runnable{
     StateLocation stateLocation = new StateLocation(this, player);
 
     // Game state
+    public final int introState = 0;
     public final int playState = 1;
     public final int fishShopState = 2;
     public final int fishingState = 3;
-    public int gameState = playState;
+    public int gameState = introState;
 
     private JLabel testButton;
 

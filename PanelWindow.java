@@ -2,6 +2,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
 import java.util.Random;
 
 import javax.swing.ButtonGroup;
@@ -14,15 +15,22 @@ import javax.swing.JRadioButton;
 import javax.swing.JSlider;
 import javax.swing.JTextField;
 
+import org.w3c.dom.events.MouseEvent;
+
 public class PanelWindow extends JPanel{
+
+    GamePanel gamePanel;
+
 // Variables
     private JLabel nameDisplay;
     private JTextField nameInput;
     private JButton randomizeName;
+    private JButton startGame;
 
 // Create Panel
-    public PanelWindow() {
-        super();
+    public PanelWindow(GamePanel gamePanel) {
+        this.gamePanel = gamePanel;
+        // super();
         initPanel();
     }
 
@@ -61,6 +69,33 @@ public class PanelWindow extends JPanel{
         }
     }
 
+    public class MouseHelper2 implements MouseListener{
+        @Override
+        public void mouseClicked(java.awt.event.MouseEvent e) {
+            gamePanel.gameState = gamePanel.playState;
+        }
+
+        @Override
+        public void mousePressed(java.awt.event.MouseEvent e) {
+            
+        }
+
+        @Override
+        public void mouseReleased(java.awt.event.MouseEvent e) {
+           
+        }
+
+        @Override
+        public void mouseEntered(java.awt.event.MouseEvent e) {
+           
+        }
+
+        @Override
+        public void mouseExited(java.awt.event.MouseEvent e) {
+            
+        }
+    }
+
 // Intro Panel
 
     public void initPanel() {
@@ -69,13 +104,16 @@ public class PanelWindow extends JPanel{
         nameDisplay = new JLabel("Name: ");
         nameInput = new JTextField("Input Name");
         randomizeName = new JButton("Randomize");
+        startGame = new JButton("Start Game");
 
         add(nameDisplay);
         add(nameInput);
         add(randomizeName);
+        add(startGame);
 
         nameInput.addActionListener(new NameListener());
         randomizeName.addActionListener(new RandomizerListener());
+        startGame.addMouseListener(new MouseHelper2());
 
         nameInput.setColumns(10);
     }
