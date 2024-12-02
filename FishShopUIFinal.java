@@ -45,21 +45,35 @@ public class FishShopUIFinal extends JPanel{
         initPanel(panelWindow);
     }
 
+    public int FishShopLevelBuilder(){
+        if(fishShopLevel < 3){
+            legalPurchase = true;
+            fishShopLevel = fishShopLevel + 1;
+            levelLabel.setText("Fish Shop Level: " + fishShopLevel);
+        }
+        if (fishShopLevel >= 3){
+            legalPurchase = false;
+            buyingFishLabel.setText("You have bought all fish shop upgrades!");
+        }
+        return fishShopLevel;
+    }
+
 // All Action Listeners
 
     public class MouseHelper1 implements MouseListener{
         
         @Override
         public void mouseClicked(MouseEvent e) {
-            if(fishShopLevel < 3){
-                legalPurchase = true;
-                fishShopLevel = fishShopLevel + 1;
-                levelLabel.setText("Fish Shop Level: " + fishShopLevel);
-            }
-            if (fishShopLevel >= 3){
-                legalPurchase = false;
-                buyingFishLabel.setText("You have bought all fish shop upgrades!");
-            }
+            // if(fishShopLevel < 3){
+            //     legalPurchase = true;
+            //     fishShopLevel = fishShopLevel + 1;
+            //     levelLabel.setText("Fish Shop Level: " + fishShopLevel);
+            // }
+            // if (fishShopLevel >= 3){
+            //     legalPurchase = false;
+            //     buyingFishLabel.setText("You have bought all fish shop upgrades!");
+            // }
+            FishShopLevelBuilder();
         }
 
         @Override

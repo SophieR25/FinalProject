@@ -80,7 +80,7 @@ public class GamePanel extends JPanel implements Runnable{
             update(); 
             fishCounter.currencyUpdate(fishShopUI);
             double fauxCurrency = Math.floor(fishCounter.currency);
-            System.out.println("Currency: " + fishCounter.currency + " Faux Currency: " + fauxCurrency);
+            // System.out.println("Currency: " + fishCounter.currency + " Faux Currency: " + fauxCurrency);
             // Draw screen with updated information
             repaint(); 
             try {

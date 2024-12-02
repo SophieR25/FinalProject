@@ -8,12 +8,17 @@ public class fishCounter{
     public double currencyUpdate(FishShopUIFinal fishShopUIFinal){
     if(fishShopUIFinal.fishShopLevel == 0){
         currency = currency + 0.001;
+        System.out.println("Level 0");
     }
     if(fishShopUIFinal.fishShopLevel == 1){
         currency = currency + 0.002;
+        System.out.println("Level 1");
+
     }
     if(fishShopUIFinal.fishShopLevel == 2){
-        currency = currency + 0.003;
+        currency = currency + 1;
+        System.out.println("Level 2");
+
     }
     if(fishShopUIFinal.fishShopLevel == 3){
         currency = currency + 0.004;
