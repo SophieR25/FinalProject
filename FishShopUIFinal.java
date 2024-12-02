@@ -38,11 +38,11 @@ public class FishShopUIFinal extends JPanel{
     boolean legalPurchase = true;
 
 // Create Panel
-    public FishShopUIFinal(GamePanel gamePanel, FindName findName) {
+    public FishShopUIFinal(GamePanel gamePanel, PanelWindow panelWindow) {
         this.gamePanel = gamePanel;
         this.findName = findName;
         // super();
-        initPanel(findName);
+        initPanel(panelWindow);
     }
 
 // All Action Listeners
@@ -148,14 +148,15 @@ public class FishShopUIFinal extends JPanel{
         }
     }
 
-    public void initPanel(FindName findName) {
-        this.findName = findName;
-        // String inputString = findName.foundName;
+    public void initPanel(PanelWindow panelWindow) {
+        this.panelWindow = panelWindow;
+        // String helpMe = panelWindow.inputName;
+        
         setPreferredSize(new Dimension(786,576));
         setBackground(Color.LIGHT_GRAY);
 
         upgradeFishButton = new JButton("Upgrade Fish Shop");
-        name = new JLabel("Welcome to the shop ! Thank you for your purchases :)                                                                                          ");
+        name = new JLabel("Welcome to the shop! Thank you for your purchases :)                                                                                          ");
         rButton = new JButton("Return");
         levelLabel = new JLabel("Fish Shop Level: " + fishShopLevel);
         buyingFishLabel = new JLabel();

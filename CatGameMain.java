@@ -22,7 +22,7 @@ public class CatGameMain {
 
         PanelWindow panelWindow = new PanelWindow(gamePanel);
         FindName findName = new FindName();
-        FishShopUIFinal fishShopUIFinal = new FishShopUIFinal(gamePanel, findName);
+        FishShopUIFinal fishShopUIFinal = new FishShopUIFinal(gamePanel, panelWindow);
         fishShopUI.add(fishShopUIFinal);
         fishShopUI.pack();
         fishShopUI.setLocationRelativeTo(null); // Display window at center of screen

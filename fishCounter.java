@@ -3,7 +3,7 @@ public class fishCounter{
     FindName findName;
     PanelWindow panelWindow;
     double currency = 0;
-    FishShopUIFinal fishShopUIFinal = new FishShopUIFinal(gamePanel, findName);
+    FishShopUIFinal fishShopUIFinal = new FishShopUIFinal(gamePanel, panelWindow);
 
     public double currencyUpdate(FishShopUIFinal fishShopUIFinal){
     if(fishShopUIFinal.fishShopLevel == 0){
