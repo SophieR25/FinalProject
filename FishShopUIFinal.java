@@ -150,13 +150,13 @@ public class FishShopUIFinal extends JPanel{
 
     public void initPanel(PanelWindow panelWindow) {
         this.panelWindow = panelWindow;
-        // String helpMe = panelWindow.inputName;
+        String helpMe = getName();
         
         setPreferredSize(new Dimension(786,576));
         setBackground(Color.LIGHT_GRAY);
 
         upgradeFishButton = new JButton("Upgrade Fish Shop");
-        name = new JLabel("Welcome to the shop! Thank you for your purchases :)                                                                                          ");
+        name = new JLabel("Welcome to the shop!" + helpMe + "Thank you for your purchases :)                                                                                          ");
         rButton = new JButton("Return");
         levelLabel = new JLabel("Fish Shop Level: " + fishShopLevel);
         buyingFishLabel = new JLabel();
