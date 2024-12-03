@@ -45,6 +45,14 @@ public class FishShopUIFinal extends JPanel{
         initPanel(panelWindow);
     }
 
+    public void setPanelWindow(PanelWindow panelWindow){
+        this.panelWindow = panelWindow;
+    }
+
+    public void updateNameLabel(String inputName){
+        name.setText(inputName);
+    }
+
     public int FishShopLevelBuilder(){
         if(fishShopLevel < 3){
             legalPurchase = true;
@@ -170,7 +178,8 @@ public class FishShopUIFinal extends JPanel{
         setBackground(Color.LIGHT_GRAY);
 
         upgradeFishButton = new JButton("Upgrade Fish Shop");
-        name = new JLabel("Welcome to the shop!" + helpMe + "Thank you for your purchases :)                                                                                          ");
+        name = new JLabel();
+        // name = new JLabel("Welcome to the shop!" + helpMe + "Thank you for your purchases :)                                                                                          ");
         rButton = new JButton("Return");
         levelLabel = new JLabel("Fish Shop Level: " + fishShopLevel);
         buyingFishLabel = new JLabel();

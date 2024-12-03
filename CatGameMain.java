@@ -2,18 +2,25 @@ import javax.swing.JFrame;
 
 public class CatGameMain {
     public static void main(String[] args) {
+        // Main game screen
         JFrame window = new JFrame("Cat Game!"); // Create new JFrame
-        JFrame fishShopUI = new JFrame("Fish Shop!");
-        JFrame fishingUI1 = new JFrame("Fish!");
-        JFrame introWindow = new JFrame("Welcome");
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Close JFrame when x is clicked
         window.setResizable(false); //Cannot change window size
-        fishShopUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Close JFrame when x is clicked
-        fishShopUI.setResizable(false); //Cannot change window size
-        fishingUI1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Close JFrame when x is clicked
-        fishingUI1.setResizable(false); //Cannot change window size
-        introWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Close JFrame when x is clicked
-        introWindow.setResizable(false); //Cannot change window size
+
+        // Fish shop
+        JFrame fishShopUI = new JFrame("Fish Shop!");
+        fishShopUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+        fishShopUI.setResizable(false); 
+
+        // Fishing Game
+        JFrame fishingUI1 = new JFrame("Fish!");
+        fishingUI1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+        fishingUI1.setResizable(false); 
+
+        // Intro screen
+        JFrame introWindow = new JFrame("Welcome");
+        introWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+        introWindow.setResizable(false); 
 
         GamePanel gamePanel = new GamePanel();
         window.add(gamePanel); // add gamePanel to the window

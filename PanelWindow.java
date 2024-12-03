@@ -19,7 +19,8 @@ import org.w3c.dom.events.MouseEvent;
 
 public class PanelWindow extends JPanel{
 
-    GamePanel gamePanel;
+    private GamePanel gamePanel;
+    private FishShopUIFinal fishShopUIFinal;
 
 // Variables
     private JLabel nameDisplay;
@@ -34,6 +35,10 @@ public class PanelWindow extends JPanel{
         this.gamePanel = gamePanel;
         // super();
         initPanel();
+    }
+
+    public void setFishShopUI(FishShopUIFinal fishShopUIFinal){
+        this.fishShopUIFinal = fishShopUIFinal;
     }
 
 // Name Randomizer
@@ -61,6 +66,7 @@ public class PanelWindow extends JPanel{
         }
         return inputName;
     }
+
 
 // All Action Listeners
     private class NameListener implements ActionListener{
