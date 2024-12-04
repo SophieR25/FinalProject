@@ -28,7 +28,7 @@ public class PanelWindow extends JPanel{
     private JButton randomizeName;
     private JButton startGame;
 
-    String inputName;
+    public String inputName;
 
 // Create Panel
     public PanelWindow(GamePanel gamePanel) {
@@ -71,7 +71,7 @@ public class PanelWindow extends JPanel{
 // All Action Listeners
     private class NameListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
-            String inputName = nameInput.getText();
+             inputName = nameInput.getText();
             System.out.println(inputName);
             getName();
         }
@@ -79,7 +79,9 @@ public class PanelWindow extends JPanel{
 
     private class RandomizerListener implements ActionListener{
         public void actionPerformed(ActionEvent e){
-            nameDisplay.setText("Name: " + createName());
+            inputName = createName();
+            nameDisplay.setText("Name: " + inputName);
+
         }
     }
 

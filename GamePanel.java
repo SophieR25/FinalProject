@@ -35,15 +35,23 @@ public class GamePanel extends JPanel implements Runnable{
     Thread gameThread; // Thread will allow multiple programs to run at once without interrupting the main program
     Player player = new Player(this, keyH);
     Background testBackground = new Background(this);
-    PanelWindow panelWindow = new PanelWindow(this);
+    PanelWindow panelWindow;
+    public void setPanelWindow(PanelWindow panelWindow) {
+        this.panelWindow = panelWindow;
+        fishShopUI = new FishShopUIFinal(this, panelWindow);
+        fishCounter  = new fishCounter(this, fishShopUI);
+        addToCurrency = new AddToCurrency(fishCounter);
+        fishingUI = new FishingUI(this, fishCounter, addToCurrency);
+    }
+
     FishshopAppearance fishShop = new FishshopAppearance(this);
     BedAppearance bedAppearance = new BedAppearance(this);
     UI ui = new UI(this);
-    fishCounter fishCounter = new fishCounter();
     FindName findName = new FindName();
-    FishShopUIFinal fishShopUI = new FishShopUIFinal(this, panelWindow);
-    AddToCurrency addToCurrency = new AddToCurrency(fishCounter);
-    FishingUI fishingUI = new FishingUI(this, fishCounter, addToCurrency);
+    FishShopUIFinal fishShopUI;
+    fishCounter fishCounter;
+    AddToCurrency addToCurrency;
+    FishingUI fishingUI;
     StateLocation stateLocation = new StateLocation(this, player);
 
     // Game state

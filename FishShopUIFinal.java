@@ -178,8 +178,7 @@ public class FishShopUIFinal extends JPanel{
         setBackground(Color.LIGHT_GRAY);
 
         upgradeFishButton = new JButton("Upgrade Fish Shop");
-        name = new JLabel();
-        // name = new JLabel("Welcome to the shop!" + helpMe + "Thank you for your purchases :)                                                                                          ");
+        name = new JLabel("Welcome to the shop!" + panelWindow.inputName + "Thank you for your purchases :)                                                                                          ");
         rButton = new JButton("Return");
         levelLabel = new JLabel("Fish Shop Level: " + fishShopLevel);
         buyingFishLabel = new JLabel();
@@ -197,17 +196,11 @@ public class FishShopUIFinal extends JPanel{
         upgradeFishButton.addMouseListener(new MouseHelper1());
         rButton.addMouseListener(new MouseHelper2());
         upgradeBed.addMouseListener(new MouseHelper3());
-        // nameDisplay = new JLabel("Name: ");
-        // nameInput = new JTextField("Input Name");
-        // randomizeName = new JButton("Randomize");
-
-        // add(nameDisplay);
-        // add(nameInput);
-        // add(randomizeName);
-
-        // nameInput.addActionListener(new NameListener());
-
-        // nameInput.setColumns(10);
+   
     }
    
+    public void updateInterface(){
+        name.setText("Welcome to the shop!" + panelWindow.inputName + "Thank you for your purchases :)                                                                                          ");
+        System.out.println(panelWindow.inputName);
+    }
 }
