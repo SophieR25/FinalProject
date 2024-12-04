@@ -1,6 +1,6 @@
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
-
+// Generalized variables fed to player class, intended use for creating multiple sprites
 public class Entity {
     public int x;
     public int y;

@@ -36,7 +36,7 @@ public class GamePanel extends JPanel implements Runnable{
     Player player = new Player(this, keyH);
     Background testBackground = new Background(this);
     PanelWindow panelWindow;
-    
+
     public void setPanelWindow(PanelWindow panelWindow) {
         this.panelWindow = panelWindow;
     }
@@ -68,14 +68,12 @@ public class GamePanel extends JPanel implements Runnable{
     FishingUI fishingUI;
     StateLocation stateLocation = new StateLocation(this, player);
 
-    // Game state
+    // Game states
     public final int introState = 0;
     public final int playState = 1;
     public final int fishShopState = 2;
     public final int fishingState = 3;
     public int gameState = introState;
-
-    private JLabel testButton;
 
     // GamePanel is the window the game is in
     public GamePanel() {
@@ -87,7 +85,7 @@ public class GamePanel extends JPanel implements Runnable{
         this.setFocusable(true);
         }
 
-    public void startGameThread() { // Run the thread
+    public void startGameThread() { // Run the game thread
         gameThread = new Thread(this);
         gameThread.start();
     }
@@ -98,13 +96,11 @@ public class GamePanel extends JPanel implements Runnable{
         double nextDrawTime = System.nanoTime() + drawInterval; // Current time as measured by system + 1 game loop
        
         while(gameThread != null) { // As long as the gameThread exists, this loop will repeat. This is my game loop
-            // Update character positions
-            update(); 
+            update(); // Update player position
             fishCounter.currencyUpdate(fishShopUI);
             double fauxCurrency = Math.floor(fishCounter.currency);
-            // System.out.println("Currency: " + fishCounter.currency + " Faux Currency: " + fauxCurrency);
-            // Draw screen with updated information
-            repaint(); 
+            System.out.println("Currency: " + fishCounter.currency + " Faux Currency: " + fauxCurrency);
+            repaint(); // Update sprites and background assets
             try {
                 double remainingTime = nextDrawTime - System.nanoTime(); // How much time until next game loop?
                 remainingTime = remainingTime/1000000; // Convert from nanoseconds to milliseconds
@@ -119,12 +115,12 @@ public class GamePanel extends JPanel implements Runnable{
             }
         }
     }
-    public void update() { // Update the player position
+    public void update() { 
         if(gameState == playState){
-            player.update();
+            player.update(); // Update player position
         }
-        if(gameState == fishShopState){
-          
+        if((gameState == fishShopState) || (gameState == introState) || (gameState == fishingState)){
+          // Player does not move
         }
     }
 
@@ -137,7 +133,7 @@ public class GamePanel extends JPanel implements Runnable{
         bedAppearance.draw(g2); // Draw bed
         player.draw(g2); // Draw player
         g2.setFont(new Font("Comic Sans MS", Font.PLAIN, 30));
-        g2.drawString("Fish: " + roundedCurrency, 30, 60);
+        g2.drawString("Fish: " + roundedCurrency, 30, 60); // Draw amount of currency
         g2.dispose(); // Clear up memory
     }
 }

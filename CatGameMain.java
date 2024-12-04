@@ -62,7 +62,7 @@ public class CatGameMain {
     
 
         // Game Loop
-        gamePanel.startGameThread();
+        gamePanel.startGameThread(); // While gamepanel exists, run the game thread
 
             double drawInterval = 1000000000/60; // 1 second (in nanoseconds, as program measures time)/FPS, aka 1/60th of a second
             double nextDrawTime = System.nanoTime() + drawInterval; // Current time as measured by system + 1 game loop

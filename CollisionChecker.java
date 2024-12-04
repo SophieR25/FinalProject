@@ -5,7 +5,7 @@ public class CollisionChecker {
         int playerLeftBound = player.x + 9;
         int playerRightBound = player.x + 39;
 
-        switch(player.direction){ // Fish shop
+        switch(player.direction){ // Fish shop collision
             case "up":
                 if((playerTopBound < 380) && (playerTopBound > 375) && (75 < player.x) && (player.x < 235)){
                     player.collisionOn = true;
@@ -28,7 +28,7 @@ public class CollisionChecker {
                 break;
         }
 
-        switch(player.direction){ // Left Wall
+        switch(player.direction){ // Left Wall collision
             case "left":
                 if((playerLeftBound < 30) && (playerLeftBound > 25) && (-5 < player.y) && (player.y < 580)){
                     player.collisionOn = true;
@@ -36,7 +36,7 @@ public class CollisionChecker {
                 break;
         }
 
-        switch(player.direction){ // Top Wall
+        switch(player.direction){ // Top Wall collision
             case "up":
                 if((playerTopBound < 30) && (playerTopBound > 25)&& (-5 < player.x) && (player.x < 790)){
                     player.collisionOn = true;
@@ -44,7 +44,7 @@ public class CollisionChecker {
                 break;
     }
 
-    switch(player.direction){ // Right Wall
+    switch(player.direction){ // Right Wall collision
         case "right":
             if((playerRightBound > 735) && (playerRightBound < 740) && (-5 < player.y) && (player.y < 580)){
                 player.collisionOn = true;
@@ -52,7 +52,7 @@ public class CollisionChecker {
             break;
     }
 
-    switch(player.direction){ // Bottom Wall
+    switch(player.direction){ // Bottom Wall collision
         case "down":
             if((playerBottomBound > 545) && (playerBottomBound < 550) && (-5 < player.x) && (player.x < 790)){
                 player.collisionOn = true;
@@ -60,7 +60,7 @@ public class CollisionChecker {
             break;
     }
 
-    switch(player.direction){ // Left Water
+    switch(player.direction){ // Left Water collision
         case "down":
             if((playerBottomBound > 420) && (playerBottomBound < 425) && (-5 < player.x) && (player.x < 130)){
                 player.collisionOn = true;
@@ -73,7 +73,7 @@ public class CollisionChecker {
             break;
     }
 
-    switch(player.direction){ // Bottom Water
+    switch(player.direction){ // Bottom Water collision
         case "down":
             if((playerBottomBound > 475) && (playerBottomBound < 480) && (-5 < player.x) && (player.x < 180)){
                 player.collisionOn = true;
@@ -81,7 +81,7 @@ public class CollisionChecker {
             break;
     }
 
-    switch(player.direction){ // Right Water
+    switch(player.direction){ // Right Water collision
         case "down":
             if((playerBottomBound > 420) && (playerBottomBound < 425) && (150 < player.x) && (player.x < 250)){
                 player.collisionOn = true;
@@ -99,7 +99,7 @@ public class CollisionChecker {
             break;
     }
 
-    switch(player.direction){ // Bed
+    switch(player.direction){ // Bed collision
         case "up":
             if((playerTopBound < 210) && (playerTopBound > 205) && (485 < player.x) && (player.x < 620)){
                 player.collisionOn = true;

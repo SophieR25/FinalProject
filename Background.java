@@ -10,7 +10,6 @@ public class Background {
 
     public Background(GamePanel gamePanel) {
         this.gamePanel = gamePanel;
-
         getBackgroundImage();
     }
 
@@ -22,7 +21,7 @@ public class Background {
         }
     }
 
-    public void draw(Graphics2D g2) { // Draw backgrounds
+    public void draw(Graphics2D g2) { // Draw background
         g2.drawImage(startingBase, 0, 0, 768, 575,null);
     }
 
