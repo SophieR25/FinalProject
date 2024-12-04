@@ -2,59 +2,66 @@ import javax.swing.JFrame;
 
 public class CatGameMain {
     public static void main(String[] args) {
-        // Main game screen
+        // Main Game JFrame
         JFrame window = new JFrame("Cat Game!"); // Create new JFrame
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Close JFrame when x is clicked
         window.setResizable(false); //Cannot change window size
 
-        // Fish shop
+        // Fish Shop JFrame
         JFrame fishShopUI = new JFrame("Fish Shop!");
         fishShopUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
         fishShopUI.setResizable(false); 
 
-        // Fishing Game
+        // Fishing Game JFrame
         JFrame fishingUI1 = new JFrame("Fish!");
         fishingUI1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
         fishingUI1.setResizable(false); 
 
-        // Intro screen
+        // Intro screen JFrame
         JFrame introWindow = new JFrame("Welcome");
         introWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
         introWindow.setResizable(false); 
 
-        // Add GamePanel to the JFrame window
+        // Instantiating Different Classes
         GamePanel gamePanel = new GamePanel();
-        window.add(gamePanel); 
-        window.pack();
-        window.setLocationRelativeTo(null); // Display window at center of screen
 
-        // Add FishShopUIFinal to JFrame fishShopUI
         PanelWindow panelWindow = new PanelWindow(gamePanel);
         gamePanel.setPanelWindow(panelWindow);
+
         FishShopUIFinal fishShopUIFinal = new FishShopUIFinal(gamePanel, panelWindow);
+        gamePanel.setFishShopUI(fishShopUIFinal);
+
+        fishCounter fishCounter = new fishCounter(gamePanel, fishShopUIFinal);
+        gamePanel.setFishCounter(fishCounter);
+
+        AddToCurrency addToCurrency = new AddToCurrency(fishCounter);
+        gamePanel.setAddToCurrency(addToCurrency);
+
+        FishingUI fishingUI = new FishingUI(gamePanel, fishCounter, addToCurrency);
+        gamePanel.setFishingUI(fishingUI);
+
         fishShopUI.add(fishShopUIFinal);
         fishShopUI.pack();
         fishShopUI.setLocationRelativeTo(null); 
         
+
+        // Add GamePanel to the JFrame window
+        window.add(gamePanel); 
+        window.pack();
+        window.setLocationRelativeTo(null); // Display window at center of screen
+
         // Add FishingUI to JFrame fishingUI
-        fishCounter fishCounter;
-        AddToCurrency addToCurrency;
-        fishCounter = new fishCounter(gamePanel, fishShopUIFinal);
-        addToCurrency = new AddToCurrency(fishCounter);
-        FishingUI fishingUI2 = new FishingUI(gamePanel, fishCounter, addToCurrency);
-        fishingUI1.add(fishingUI2);
+        fishingUI1.add(fishingUI);
         fishingUI1.pack();
         fishingUI1.setLocationRelativeTo(null);
 
         // Add PanelWindow to JFrame introWindow
-        PanelWindow introPanelWindow = new PanelWindow(gamePanel);
-        introWindow.add(introPanelWindow);
+        introWindow.add(panelWindow);
         introWindow.pack();
         introWindow.setLocationRelativeTo(null); // Display window at center of screen
     
-        fishShopUIFinal.setPanelWindow(introPanelWindow);
-        introPanelWindow.setFishShopUI(fishShopUIFinal);
 
+        // Game Loop
         gamePanel.startGameThread();
 
             double drawInterval = 1000000000/60; // 1 second (in nanoseconds, as program measures time)/FPS, aka 1/60th of a second

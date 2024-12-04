@@ -36,13 +36,27 @@ public class GamePanel extends JPanel implements Runnable{
     Player player = new Player(this, keyH);
     Background testBackground = new Background(this);
     PanelWindow panelWindow;
+    
     public void setPanelWindow(PanelWindow panelWindow) {
         this.panelWindow = panelWindow;
-        fishShopUI = new FishShopUIFinal(this, panelWindow);
-        fishCounter  = new fishCounter(this, fishShopUI);
-        addToCurrency = new AddToCurrency(fishCounter);
-        fishingUI = new FishingUI(this, fishCounter, addToCurrency);
     }
+
+    public void setFishShopUI(FishShopUIFinal fishShopUI) {
+        this.fishShopUI = fishShopUI;
+    }
+    
+    public void setFishCounter(fishCounter fishCounter){
+        this.fishCounter = fishCounter;
+    }
+
+    public void setAddToCurrency(AddToCurrency addToCurrency){
+        this.addToCurrency = addToCurrency;
+    }
+
+    public void setFishingUI(FishingUI fishingUI){
+        this.fishingUI = fishingUI;
+    }
+
 
     FishshopAppearance fishShop = new FishshopAppearance(this);
     BedAppearance bedAppearance = new BedAppearance(this);
