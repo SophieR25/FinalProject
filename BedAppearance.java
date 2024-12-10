@@ -6,6 +6,7 @@ import javax.imageio.ImageIO;
 
 public class BedAppearance {
     GamePanel gamePanel;
+    FishShopUIFinal fishShopUIFinal;
     public BufferedImage bed1;
     public BufferedImage bed2;
     public BufferedImage bed3;

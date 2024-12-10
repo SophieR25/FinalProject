@@ -40,7 +40,7 @@ public class FishingUI extends JPanel{
     public class MouseHelper1 implements MouseListener{      
         @Override
         public void mouseClicked(MouseEvent e) {
-            // At some point this is meant to update the amount of currency (fish) by adding 1
+            fishCounter.currency = fishCounter.currency + 1;
         }
 
         @Override
