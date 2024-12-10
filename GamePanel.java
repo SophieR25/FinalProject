@@ -57,7 +57,11 @@ public class GamePanel extends JPanel implements Runnable{
         this.fishingUI = fishingUI;
     }
 
-
+    public void setBedAppearance(GamePanel gamePanel){
+        this.bedAppearance = bedAppearance;
+        // BedAppearance bedAppearance = new BedAppearance(this);
+    }
+    
     FishshopAppearance fishShop = new FishshopAppearance(this);
     BedAppearance bedAppearance = new BedAppearance(this);
     UI ui = new UI(this);

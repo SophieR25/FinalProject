@@ -40,6 +40,9 @@ public class CatGameMain {
         FishingUI fishingUI = new FishingUI(gamePanel, fishCounter, addToCurrency);
         gamePanel.setFishingUI(fishingUI);
 
+        BedAppearance bedAppearance = new BedAppearance(gamePanel);
+        gamePanel.setBedAppearance(gamePanel);
+
         fishShopUI.add(fishShopUIFinal);
         fishShopUI.pack();
         fishShopUI.setLocationRelativeTo(null); 

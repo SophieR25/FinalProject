@@ -2,7 +2,7 @@ public class fishCounter{
     GamePanel gamePanel;
     FindName findName;
     PanelWindow panelWindow;
-    double currency = 0;
+    public double currency = 0;
     FishShopUIFinal fishShopUIFinal;
 
     public fishCounter(GamePanel gamePanel, FishShopUIFinal fishShopUIFinal) {

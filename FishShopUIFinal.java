@@ -32,6 +32,8 @@ public class FishShopUIFinal extends JPanel{
     GamePanel gamePanel;
     PanelWindow panelWindow;
     FindName findName;
+    AddToCurrency addToCurrency;
+    fishCounter fishCounter;
         
     int fishShopLevel = 0;
     int bedLevel = 0;
@@ -41,6 +43,7 @@ public class FishShopUIFinal extends JPanel{
     public FishShopUIFinal(GamePanel gamePanel, PanelWindow panelWindow) {
         this.gamePanel = gamePanel;
         this.findName = findName;
+        // this.fishCounter = fishCounter;
         // super();
         initPanel(panelWindow);
     }

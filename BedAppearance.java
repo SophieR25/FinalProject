@@ -13,6 +13,7 @@ public class BedAppearance {
 
     public BedAppearance(GamePanel gamePanel) {
         this.gamePanel = gamePanel;
+        this.fishShopUIFinal = fishShopUIFinal;
         getBackgroundImage();
     }
 
